@@ -96,7 +96,7 @@ void loop() {
     }
   }
 
-  if (millis() - etime > s * 1000) {
+  if (millis() - etime > (s * 1000)) {//also handles case where millis rolls over, but may cause timing issue.
     etime = millis();
 
     sensor1.getIgas(n);
@@ -111,6 +111,6 @@ void loop() {
     Serial.print(", ");
     Serial.println(sensor1.convertX('M')); //use 'M' or 'B' for units or Serial.println(sensor1.pX); to just print ppb
 
-  } else if (millis() - etime < 0)    etime = millis();
+  } 
 
 }
