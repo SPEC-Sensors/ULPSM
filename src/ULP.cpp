@@ -206,7 +206,7 @@ SO2::SO2(int a, int b, float c) : ULP(a, b, c = 14.6) {
 }
 
 NO2::NO2(int a, int b, float c) : ULP(a, b, c = -25.0) {
-  setVref(-25, 143000);
+  setVref(-25, 16200);
   pGain = 499.0;
   pn = 109.6;
   pTc = 0.005;
