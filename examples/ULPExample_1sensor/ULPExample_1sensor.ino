@@ -31,6 +31,10 @@ SO2 sensor1(C1, T1, Sf1);  //Sensor Types are EtoH, H2S, CO, IAQ, SO2, NO2, RESP
 
 
 void setup() {
+  //uncomment only after you have connected 3.3V to Aref on the arduino
+  //analogReference(EXTERNAL); 
+  //sensor1.pVcc = 3.31;  //analogRead Reference Voltage, equal to pVsup when analogReference uses same voltage as sensor power
+  
   sensor1.pVcc = 5.04;  //analogRead Reference Voltage, maybe measure Aref??
   sensor1.pVsup = 3.31;  //voltage supplied to V+ of ULP, default is 3.3 Volts, probably should measure this as well.
 
