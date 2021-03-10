@@ -14,7 +14,9 @@
 
   2.  Before using temperature compensation look at the signal without compensation. The compensation algorithms are for health and safety levels only. For measuring air quality (low levels) the final temperature compensation will depend on many factors of your iplementation. Please contact SPEC sensor for advice on Air Quality temperature calibration for final implementation.
 
- 3.  In the implementation of temperature compensation, be sure to pass the function a float value. If you pass an integer or a rounded float value, you will see large jumps in the concentration whenever the value changes, ie. from 24 C to 25 C.
+  3.  In the implementation of temperature compensation, be sure to pass the function a float value. If you pass an integer or a rounded float value, you will see large jumps in the concentration whenever the value changes, ie. from 24 C to 25 C.
+
+  4.  Using Arduino's with various power supplies:  It appears some Arduinos will provide variable voltage to the ADC reference voltage, for instance a 5 volt Arduino can measure a 3.3 volt analog input as anywhere from 3.32 to 3.15 depending on the power supply. The recomendation is to use analogReference(EXTERNAL) early in the setup function, and run a wire from the input of the analog sensors (3.3 V rail of arduino) to Aref of the arduino. This could fix the variablity of the arduino ADC.  Slight variation can be seen from some power supplies that may pass small AC voltages to the arduino, this could cause a few hundred ppb shift when changing power supplies of the arduino.
 
 
 <hr>
