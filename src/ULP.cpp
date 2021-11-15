@@ -137,13 +137,13 @@ void ULP::getIgas(int n){
   float Cnts = float (anaCounts) / float(i);
 
   pVgas = Cnts * pVcc * 1000.0 / 1024.0; //in mV
-  pInA = (pVgas-pVref_set)/pGain * 1000.0; 
+  pInA = (pVgas-pVref_set)/pGain / 1000.0; //in nA !!error in previous calculation with *1000!!
 } 
 
 void  ULP::getConc(float t) {
   float nA = pInA - pIzero * expI(t-pTzero);
   float Sens = pSf * (1.0 + pTc * (t - 20.0));
-  pX = nA / Sens *1000.0;
+  pX = nA / Sens *1000.0; //output in ppb
 }
 
 float ULP::expI(float T){
